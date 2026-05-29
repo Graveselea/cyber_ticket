@@ -1,8 +1,8 @@
 import mistralai.workflows as workflows
 
-from .cyber_analysis import analyse_ticket
-from .cyber_models import BatchCyberAnalysis, CyberTicketInput
-from .cyber_parser import build_raw_content, parse_input
+from .analysis import analyse_ticket
+from .models import BatchCyberAnalysis, CyberTicketInput
+from .parser_cyber import build_raw_content, parse_input_cyber
 
 
 @workflows.workflow.define(
@@ -19,7 +19,7 @@ class CyberTicketWorkflow:
     async def run(self, input: CyberTicketInput) -> BatchCyberAnalysis:
         print("DEBUG - workflow started")
 
-        parsed_contents = await parse_input(input)
+        parsed_contents = await parse_input_cyber(input)
         raw_content = await build_raw_content(parsed_contents)
         analysis = await analyse_ticket(raw_content)
 

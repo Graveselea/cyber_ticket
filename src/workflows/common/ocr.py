@@ -2,7 +2,7 @@ import mistralai.workflows as workflows
 from mistralai.workflows.plugins.mistralai import mistralai_ocr
 from mistralai.workflows.plugins.mistralai.activities import mistralai_models
 
-from .cyber_models import FileType
+from ..cyber_ticket.models import FileType
 
 
 @workflows.activity()

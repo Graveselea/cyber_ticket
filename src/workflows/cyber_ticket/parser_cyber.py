@@ -1,12 +1,14 @@
 import mistralai.workflows as workflows
 
-from .cyber_models import CyberTicketInput, ParsedContent
-from .cyber_ocr import ocr_document
-from .cyber_utils import is_valid_url, logs_to_text
+from ..common.ocr import ocr_document
+from .models import CyberTicketInput, ParsedContent
+from .utils import is_valid_url, logs_to_text
 
 
 @workflows.activity()
-async def parse_input(input_data: CyberTicketInput) -> list[ParsedContent]:
+async def parse_input_cyber(
+    input_data: CyberTicketInput,
+) -> list[ParsedContent]:
     """
     Transforme l’input utilisateur en contenus normalisés.
 
@@ -80,10 +82,7 @@ async def build_raw_content(parsed_contents: list[ParsedContent]) -> str:
     parts: list[str] = []
 
     for parsed in parsed_contents:
-        print(
-            "DEBUG - Processing "
-            f"{parsed.ticket_id} / {parsed.source_type}"
-        )
+        print(f"DEBUG - Processing {parsed.ticket_id} / {parsed.source_type}")
 
         if parsed.source_type in ["pdf", "image"]:
             extracted_text = await ocr_document(

@@ -44,4 +44,4 @@ def extract_json(text: str) -> dict[str, Any]:
     if start == -1 or end == -1:
         raise ValueError(f"Aucun JSON trouvé dans la réponse : {text}")
 
-    return json.loads(cleaned[start:end + 1])
+    return json.loads(cleaned[start: end + 1])

@@ -1,5 +1,9 @@
-"""Workflows package."""
+"""Workflow package."""
 
-from .cyber_ticket import CyberTicketWorkflow
+from .cyber_ticket.workflow import CyberTicketWorkflow
+from .tprm.workflow import TPRMWorkflow
 
-__all__ = ["CyberTicketWorkflow"]
+__all__ = [
+    "CyberTicketWorkflow",
+    "TPRMWorkflow",
+]

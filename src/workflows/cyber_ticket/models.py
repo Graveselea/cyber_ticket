@@ -2,7 +2,6 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
-
 FileType = Literal["pdf", "image"]
 SourceType = Literal["text", "logs", "pdf", "image"]
 Criticite = Literal["faible", "moyenne", "elevee", "critique"]

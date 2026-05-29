@@ -8,9 +8,9 @@ from mistralai.workflows.plugins.mistralai import (
 )
 from pydantic import ValidationError
 
-from .cyber_models import BatchCyberAnalysis
-from .cyber_prompt import build_analysis_prompt
-from .cyber_utils import extract_json
+from .models import BatchCyberAnalysis
+from .prompt import build_analysis_prompt
+from .utils import extract_json
 
 
 @workflows.activity()

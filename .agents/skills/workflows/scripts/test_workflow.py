@@ -83,7 +83,9 @@ def _is_interactive(cls: type) -> bool:
 def _discover_workflow(
     workflow_file: Path, name_override: str | None
 ) -> tuple[type, str, bool]:
-    """Find and select the workflow class.  Returns (cls, name, interactive)."""
+    """
+    Find and select the workflow class.  Returns (cls, name, interactive).
+    """
     module = _import_module(workflow_file)
     found = _find_workflow_classes(module)
 
@@ -138,7 +140,9 @@ async def _poll_and_submit_interactions(
     poll_timeout: float = 60.0,
     poll_interval: float = 0.5,
 ) -> None:
-    """Poll __get_pending_inputs and submit each interaction response in order."""
+    """
+    Poll __get_pending_inputs and submit each interaction response in order.
+    """
 
     class _Payload(BaseModel):
         task_id: str
